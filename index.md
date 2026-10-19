@@ -9,7 +9,8 @@ permalink: /
 
 Dernière mise à jour : 19 octobre 2026.
 
-Cohana aide deux personnes à organiser leur foyer sur iPhone et iPad. Le
+Cohana aide les membres d’un foyer de 1 à 12 personnes à organiser leur quotidien
+sur iPhone et iPad. Le
 responsable du traitement indiqué pour le projet est **Théo Florès** ; contact :
 **florstheo@gmail.com**.
 
@@ -33,8 +34,11 @@ le texte reconnu est lu, et seules les propositions validées sont ajoutées au
 foyer. Quand l’appareil ne reconnaît pas le français localement, la
 reconnaissance vocale d’Apple traite l’audio sur ses serveurs ; l’écran de
 dictée l’indique alors (« via les serveurs Apple »). Le scan d’un code-barres
-n’envoie que ses chiffres, sans identifiant de compte, de foyer ou d’appareil,
-et le résultat n’est pas conservé en cache. Les ingrédients proposés pour un
+envoie ses chiffres au service de recherche, sans identifiant de compte, de
+foyer ou d’appareil. Comme toute requête Internet, le fournisseur reçoit aussi
+l’adresse IP et les données techniques nécessaires à la connexion ; ses règles
+d’utilisation et de conservation s’appliquent. Le résultat n’est pas conservé
+en cache. Les ingrédients proposés pour un
 plat viennent d’une recette du foyer ou du catalogue, sinon du modèle Apple
 Intelligence exécuté sur l’appareil : seul le nom du plat lui est transmis, sans
 envoi à Cohana. Le même modèle, toujours sur l’appareil, relit le texte dicté
@@ -53,15 +57,16 @@ ne charge pas les URL d’images externes fournies dans les recettes éditoriale
 ## iCloud et partage
 
 Le foyer est dans une zone CloudKit privée de son propriétaire, partagée avec
-le partenaire invité. Chaque membre garde une zone personnelle privée. Le
+les autres membres invités. Chaque membre garde une zone personnelle privée. Le
 catalogue public contient des recettes éditoriales et photos, sans contenu de
 foyer. Le stockage et les services iCloud sont fournis par Apple, selon ses
 conditions et [informations de confidentialité](https://www.apple.com/legal/privacy/).
 
 Le partage limite les personnes qui accèdent à la zone ; ses membres en
 lecture/écriture peuvent modifier les données du foyer. Le contenu des records
-du foyer et des zones personnelles est écrit dans un champ CloudKit chiffré
-(`encryptedValues`), avec des clés du trousseau iCloud des membres du partage ;
+du foyer et des zones personnelles est écrit dans le champ `encryptedPayload`,
+chiffré par CloudKit via `CKRecord.encryptedValues`, avec des clés du trousseau
+iCloud des membres du partage ;
 Cohana n’a aucun accès serveur à ce contenu. Les noms techniques des records,
 leurs dates, la structure des zones et les photos (chiffrées au repos par
 CloudKit) ne relèvent pas de ce chiffrement. Si une personne réinitialise les
@@ -107,10 +112,6 @@ Pour demander accès, rectification, effacement, limitation ou portabilité,
 écrire à **florstheo@gmail.com**. Une demande de retrait d’un partage, de
 suppression du foyer ou d’effacement de données privées doit préciser le
 périmètre concerné. Une réclamation peut être adressée à la [CNIL](https://www.cnil.fr/).
-
-Le registre des traitements décrit les éléments à finaliser avant distribution,
-selon les
-[principes d’information des personnes](https://www.cnil.fr/fr/conformite-rgpd-information-des-personnes-et-transparence).
 
 ## Mentions légales
 
