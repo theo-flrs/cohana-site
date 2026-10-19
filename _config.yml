@@ -1,0 +1,10 @@
+title: Cohana
+description: Confidentialité, mentions légales et assistance
+lang: fr
+theme: jekyll-theme-primer
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
